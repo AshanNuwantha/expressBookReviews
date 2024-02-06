@@ -68,11 +68,12 @@ public_users.get('/title/:title',function (req, res) {
 //  Get book review (Task 5)
 public_users.get('/review/:isbn',function (req, res) {
 
-  if(books[req.params.isbn].reviews.length == 0 || books[req.params.isbn].reviews.length == null){
+  if(books[req.params.isbn].reviews === undefined || books[req.params.isbn].reviews == null){
     return res.status(404).json({isbn: req.params.isbn,message: "No more reviews."});
   }else{
-    return res.status(300).json(books[req.params.isbn].reviews);
+    return res.status(300).json({reviews: books[req.params.isbn].reviews});
   }
+
 });
 
 /////////////----------Async-Await functions-------------/////////////////

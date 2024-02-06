@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUninitialized: true}))
-// accessToken auth to session to add (Task 7)
+// accessToken auth to session to add
 app.use("/customer/auth/*", function auth(req,res,next){
     if(req.session.authenticated){
         
